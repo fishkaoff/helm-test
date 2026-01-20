@@ -19,6 +19,8 @@ spec:
         app.kubernetes.io/app: {{ include "app.name" . }}
         app.kubernetes.io/version: {{ include "app.version" . }}
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: {{ include "app.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
