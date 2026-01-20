@@ -31,7 +31,7 @@ db:
   user: "sso-service"
 
 redis:
-  addr: "redis.infra.svc.cluster.local:6379"
+  addr: "redis-test.infra.svc.cluster.local:6379"
   db: "0"
   user: ""
 
