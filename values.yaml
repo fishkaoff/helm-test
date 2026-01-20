@@ -1,0 +1,45 @@
+namespace: shared
+
+replicaCount: 2
+
+image:
+  repository: registry.saby.pro/shared/sso-service
+  tag: accddfbc
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+
+# app config
+env:
+  ENV: local
+  SERVICE_NAME: sso-service
+  SERVICE_VERSION: v1.0.1
+  OTLP_ENDPOINT: otlp.monitoring.svc:4318
+
+http:
+  addr: ":8080"
+  port: 8080
+
+grpc:
+  port: 50051
+
+db:
+  host: 192.168.0.212
+  port: 5432
+  name: sso
+  user: sso-service
+
+redis:
+  addr: redis.infra.svc.cluster.local:6379
+  db: 0
+  user: ""
+
+scheduler:
+  interval: 100
+  servers: "kafka-1:9092,kafka-2:9092"
+  topic: user-events
+  client_id: sso-service
+
+jwt:
+  access_token_life_time: 1h

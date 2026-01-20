@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ include "app.name" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`saby.pro`) && PathPrefix(`/users`)
+      kind: Rule
+      services:
+        - name: sso-service
+          port: 8080

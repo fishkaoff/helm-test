@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Values.namespace }}
+  name: {{ include "app.name" . }}-config
+data:
+  ENV: {{ .Values.env.ENV }}
+  SERVICE_NAME: {{ .Values.env.SERVICE_NAME }}
+  SERVICE_VERSION: {{ .Values.env.SERVICE_VERSION }}
+  OTLP_ENDPOINT: {{ .Values.env.OTLP_ENDPOINT }}
+  HTTP_ADDR: {{ .Values.http.addr }}
+  GRPC_PORT: {{ .Values.grpc.port }}
+  DB_HOST: {{ .Values.db.host }}
+  DB_PORT: {{ .Values.db.port }}
+  DB_NAME: {{ .Values.db.name }}
+  DB_USER: {{ .Values.db.user }}
+  REDIS_ADDR: {{ .Values.redis.addr }}
+  REDIS_DB: {{ .Values.redis.db }}
+  REDIS_USER: {{ .Values.redis.user }}
+  SCHEDULER_INTERVAL: {{ .Values.scheduler.interval }}
+  SCHEDULER_SERVERS: {{ .Values.scheduler.servers }}
+  SCHEDULER_TOPIC: {{ .Values.scheduler.topic }}
+  SCHEDULER_CLIENT_ID: {{ .Values.scheduler.client_id }}
+  JWT_ACCESS_TOKEN_LIFE_TIME: {{ .Values.jwt.access_token_life_time }}
