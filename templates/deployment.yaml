@@ -34,12 +34,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: jwt-secrets
-              mountPath: /private.pem
-              subPath: private.pem
-              readOnly: true
-            - name: jwt-secrets
-              mountPath: /public.pem
-              subPath: public.pem
+              mountPath: /keys
               readOnly: true
           resources:
             requests:
