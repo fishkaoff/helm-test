@@ -55,9 +55,9 @@ spec:
                 name: {{ include "app.name" . }}-secrets
     volumes:
       - name: private-key
-          secret:
-            secretName: jwt-keys
-            items:
+        secret:
+          secretName: jwt-keys
+          items:
             - key: private.pem
               path: private.pem
               mode: 0444 
@@ -65,6 +65,6 @@ spec:
           secret:
             secretName: jwt-keys
             items:
-            - key: public.pem
-              path: public.pem
-              mode: 0444  
+              - key: public.pem
+                path: public.pem
+                mode: 0444  
