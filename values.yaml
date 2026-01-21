@@ -43,3 +43,5 @@ scheduler:
 
 jwt:
   access_token_life_time: "1h"
+  public_key_path: "/keys/public.pem"
+  private_key_path: "/keys/private.pem"

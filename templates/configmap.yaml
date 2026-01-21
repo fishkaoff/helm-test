@@ -22,3 +22,5 @@ data:
   SCHEDULER_TOPIC: {{ .Values.scheduler.topic | quote }}
   SCHEDULER_CLIENT_ID: {{ .Values.scheduler.client_id | quote }}
   JWT_ACCESS_TOKEN_LIFE_TIME: {{ .Values.jwt.access_token_life_time | quote }}
+  JWT_PUBLIC_KEY_PATH: {{ .Values.jwt.public_key_path | quote}}
+  JWT_PRIVATE_KEY_PATH: {{ .Values.jwt.private_key_path | quote}}
