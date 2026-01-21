@@ -33,11 +33,11 @@ spec:
               containerPort: {{ .Values.grpc.port }}
               protocol: TCP
           volumeMounts:
-            - name: private-key
+            - name: jwt-secrets
               mountPath: /private.pem
               subPath: private.pem
               readOnly: true
-            - name: public-key
+            - name: jwt-secrets
               mountPath: /public.pem
               subPath: public.pem
               readOnly: true
@@ -54,17 +54,13 @@ spec:
             - secretRef:
                 name: {{ include "app.name" . }}-secrets
     volumes:
-      - name: private-key
+      - name: jwt-secrets
         secret:
-          secretName: jwt-keys
+          secretName: {{ "jwt-keys" }}
           items:
-            - key: private.pem
-              path: private.pem
-              mode: 0444 
-        - name: public-key
-          secret:
-            secretName: jwt-keys
-            items:
+              - key: private.pem
+                path: private.pem
+                mode: 0444
               - key: public.pem
                 path: public.pem
-                mode: 0444  
+                mode: 0444
