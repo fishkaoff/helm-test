@@ -53,11 +53,11 @@ spec:
                 name: {{ include "app.name" . }}-config 
             - secretRef:
                 name: {{ include "app.name" . }}-secrets
-    volumes:
-      - name: jwt-secrets
-        secret:
-          secretName: {{ "jwt-keys" }}
-          items:
+      volumes: 
+        - name: jwt-secrets
+          secret:
+            secretName: jwt-keys
+            items:
               - key: private.pem
                 path: private.pem
                 mode: 0444
