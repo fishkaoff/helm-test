@@ -57,10 +57,3 @@ spec:
         - name: jwt-secrets
           secret:
             secretName: jwt-keys
-            items:
-              - key: private.pem
-                path: private.pem
-                mode: 0444
-              - key: public.pem
-                path: public.pem
-                mode: 0444
